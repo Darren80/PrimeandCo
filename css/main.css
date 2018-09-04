@@ -393,9 +393,8 @@ top: 50%;
 }
 .partners {
   display: grid;
-  grid-template-columns: repeat(5, 175px);
-  grid-template-rows: 150px;
-  grid-gap: 20px 50px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2% 2%;
 
 
   align-items: center;
