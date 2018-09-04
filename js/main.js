@@ -63,7 +63,7 @@ $(window).load(function() {
   	// Get the SVG document inside the Object tag
   	var svgDoc = a.contentDocument;
   	// Get one of the SVG items by ID;
-  	var svgItem = svgDoc.getElementById("letterF");
+  	var svgItem = svgDoc.querySelector("g");
   	// Set the colour to something else
   	svgItem.setAttribute("fill", "lime");
 
