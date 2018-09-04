@@ -58,13 +58,17 @@ $( document ).ready(function() {
 });
 $(window).load(function() {
   	// Get the Object by ID
-  	var a = document.getElementById("svgObject");
+  	var a = document.querySelector("#svgObject");
 
   	// Get the SVG document inside the Object tag
-  	var svgDoc = a.contentDocument;
+  	// var svgDoc = a.contentDocument;
   	// Get one of the SVG items by ID;
-  	var svgItem = svgDoc.getElementById("letterF");
+  	// var svgItem = svgDoc.getElementById("letterF");
   	// Set the colour to something else
-  	svgItem.setAttribute("fill", "lime");
+  	// svgItem.setAttribute("fill", "lime");
+
+    a.addEventListener("mouseover", function() {
+      console.log("hovered");
+    });
 
   });
