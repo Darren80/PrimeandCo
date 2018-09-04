@@ -1,0 +1,7 @@
+g {
+  fill: rgba(0, 0, 0, 0.5);
+  transition: fill .2s ease;
+}
+g:hover {
+  fill: rgba(0, 0, 0, 0.7);
+}
