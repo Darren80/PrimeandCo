@@ -67,7 +67,7 @@ $(window).load(function() {
   	// Set the colour to something else
   	svgItem.setAttribute("fill", "lime");
 
-    a.addEventListener("mouseover", function() {
+    svgItem.addEventListener("mouseover", function() {
       console.log("hovered");
     });
 
