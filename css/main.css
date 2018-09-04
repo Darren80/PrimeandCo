@@ -393,42 +393,28 @@ top: 50%;
 }
 .partners {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: 200px;
-  grid-gap: 0 30px;
+  grid-template-columns: repeat(5, 175px);
+  grid-template-rows: 150px;
+  grid-gap: 20px 50px;
 
 
   align-items: center;
   justify-items: center;
 
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .partners svg {
   fill: rgba(0, 0, 0, 0.5);
 }
-
-.partners .ft {
-  width: 100%;
-}
-
 path {
   transition: fill .2s ease;
 }
-.partners .theEconomist {
 
+.partners object {
   width: 100%;
-  height: 100%;
-}
-.partners .logo {
-  grid-column: 3 / span 1;
-  width: 100%;
-  transform: scale(1.2);
-}
-
-.partners .acca {
-  grid-column: 4 / span 1;
-  height: 100%;
+  pointer-events: none;
 }
 
 
