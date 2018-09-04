@@ -65,6 +65,6 @@ $(window).load(function() {
   	// Get one of the SVG items by ID;
   	var svgItem = svgDoc.getElementById("letterF");
   	// Set the colour to something else
-  	svgItem.setAttribute("stroke", "lime");
+  	svgItem.setAttribute("fill", "lime");
 
   });
