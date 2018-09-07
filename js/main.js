@@ -59,16 +59,32 @@ $( document ).ready(function() {
 $(window).load(function() {
   	// Get the Object by ID
   	var a = document.querySelector("#svgObject");
+    var b = document.querySelector("#svg1");
 
   	// Get the SVG document inside the Object tag
   	var svgDoc = a.contentDocument;
   	// Get one of the SVG items by ID;
   	var svgItem = svgDoc.querySelector("g");
   	// Set the colour to something else
-  	svgItem.setAttribute("fill", "lime");
 
-    svgItem.addEventListener("mouseover", function() {
-      console.log("hovered");
+
+    document.querySelector('#svg1').addEventListener("mouseover", function() {
+      svgItem.setAttribute("fill", '#00aa50');
+      classSwitcher(b);
+    });
+    document.querySelector('#svg1').addEventListener("mouseout", function() {
+      svgItem.removeAttribute("fill");
+      classSwitcher(b);
     });
 
-  });
+  })
+
+  function classSwitcher(element) {
+    if (element.className.includes('up')) {
+      element.classList.add('down');
+      element.classList.remove('up');
+  } else {
+    element.classList.remove('down');
+    element.classList.add('up');
+  }
+};

@@ -404,16 +404,48 @@ top: 50%;
   margin-bottom: 2rem;
 }
 
-.partners .theEconomist:hover {
-  fill: rgba(0, 150, 0, 0.5);
+.abc {
+  fill: lime;
 }
 path {
   transition: fill .2s ease;
 }
-
 .partners object {
   width: 100%;
   pointer-events: none;
+}
+
+.glass {
+  position: relative;
+}
+.glass::before {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  z-index: 1;
+  display: block;
+  position: absolute;
+  content: ' ';
+
+  background-size: cover;
+}
+
+.glass::before {
+  filter: blur(5px);
+  opacity: 0.5;
+  background-color: white;
+  pointer-events: none;
+}
+
+.glass, .glass::before {
+  transition: transform 1s ease;
+}
+.glass.down::before {
+  transform: translateY(100%);
+}
+.glass.up::before {
+  transform: translateY(0%);
 }
 
 
