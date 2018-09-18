@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="1200pt" height="716pt" viewBox="0 0 1200 716" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200pt" height="716pt" viewBox="0 0 1200 716" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    .blur {
+      filter: url(#svgFilter);
+    }
+  </style>
+  <filter id="svgFilter" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur id="svgFilterBlur" in="SourceGraphic" result="Blur" stdDeviation="10"/>
+  </filter>
+  <animate
+    xlink:href="#svgFilterBlur"
+    attributeName="stdDeviation"
+    values="10;0;10"
+    dur="3s"
+    fill="freeze"
+    repeatCount="indefinite"
+    />
 <g id="#01928cff">
 <path fill="#01928c" opacity="1.00" d=" M 0.00 0.00 L 16.92 0.00 C 16.92 237.46 16.92 474.92 16.92 712.38 C 11.28 712.39 5.64 712.38 0.00 712.39 L 0.00 0.00 Z" />
 </g>

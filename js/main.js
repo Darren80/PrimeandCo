@@ -20,7 +20,7 @@ $( document ).ready(function() {
   //$('#phone-number')[0].setCustomValidity('Phone number must be in the format XXXX-XXX-XXXX');
 
 
-  var element_position = $('.card').offset().top;
+  var element_position = $('.cards').offset().top;
   var screen_height = $(window).height();
   var activation_offset = 0.7;//determines how far up the the page the element needs to be before triggering the function
   var activation_point = element_position - (screen_height * activation_offset);
@@ -67,17 +67,57 @@ $(window).load(function() {
   	var svgItem = svgDoc.querySelector("g");
   	// Set the colour to something else
 
-
-    document.querySelector('#svg1').addEventListener("mouseover", function() {
-      svgItem.setAttribute("fill", '#00aa50');
-      classSwitcher(b);
+    document.querySelectorAll('object').forEach(svgNode => {
+      //Add blur
+      svgNode.addEventListener('mouseover', (event) => {
+         let svgDocument = event.target.contentDocument;
+         let svgItems = svgDocument.querySelectorAll('g');
+         svgItems.forEach(svgItem => {
+           svgItem.classList.add('blur');
+         });
+       });
+       //Remove blur
+       svgNode.addEventListener('mouseout', (event) => {
+          let svgDocument = event.target.contentDocument;
+          let svgItems = svgDocument.querySelectorAll('g');
+          svgItems.forEach(svgItem => {
+            svgItem.classList.remove('blur');
+          });
+        });
     });
-    document.querySelector('#svg1').addEventListener("mouseout", function() {
-      svgItem.removeAttribute("fill");
-      classSwitcher(b);
-    });
 
-  })
+    // document.querySelector('#svg1').addEventListener("mouseover", function() {
+    //   svgItem.classList.add('blur');
+    //   // classSwitcher(b);
+    // });
+    // document.querySelector('#svg1').addEventListener("mouseout", function() {
+    //   svgItem.classList.remove('blur');
+    //   // classSwitcher(b);
+    // });
+    let navElement = document.querySelector('#navbar-pages');
+    let ms = new MenuSpy(navElement);
+
+//Scroll to Hash
+document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
+    node.addEventListener('click', (event) => {
+
+      let hash = event.target.getAttribute('href');
+      $('html, body').animate({
+          scrollTop: $(hash).offset().top - 80
+      }, 200);
+      
+    });
+  });
+
+    function svgHovered(e) {
+      console.log(e);
+    }
+
+
+
+
+
+  });
 
   function classSwitcher(element) {
     if (element.className.includes('up')) {

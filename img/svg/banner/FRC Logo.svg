@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="300pt" height="168pt" viewBox="0 0 300 168" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="300pt" height="168pt" viewBox="0 0 300 168" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    .blur {
+      filter: url(#svgFilter);
+    }
+  </style>
+  <filter id="svgFilter" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur id="svgFilterBlur" in="SourceGraphic" result="Blur" stdDeviation="4"/>
+  </filter>
+  <animate
+    xlink:href="#svgFilterBlur"
+    attributeName="stdDeviation"
+    values="4;0;4"
+    dur="3s"
+    fill="freeze"
+    repeatCount="indefinite"
+    />
 <g id="#ffffffff">
 <path fill="#ffffff" opacity="1.00" d=" M 0.00 0.00 L 142.82 0.00 C 135.93 0.77 128.98 0.57 122.10 1.50 C 98.80 3.95 75.69 9.55 54.35 19.34 C 36.82 27.50 19.98 38.82 9.12 55.14 C 3.51 63.45 0.36 73.30 0.00 83.31 L 0.00 0.00 Z" />
 <path fill="#ffffff" opacity="1.00" d=" M 157.36 0.00 L 300.00 0.00 L 300.00 84.45 C 299.73 75.55 297.46 66.72 292.96 59.01 C 283.87 43.10 268.73 31.67 252.82 23.15 C 223.51 7.67 190.24 1.36 157.36 0.00 Z" />

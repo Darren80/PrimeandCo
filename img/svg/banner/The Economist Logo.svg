@@ -1,9 +1,25 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
  width="2000.000000pt" height="1024.000000pt" viewBox="0 0 2000.000000 1024.000000"
  preserveAspectRatio="xMidYMid meet">
+ <style type="text/css">
+   .blur {
+     filter: url(#svgFilter);
+   }
+ </style>
+ <filter id="svgFilter" x="-50%" y="-50%" width="200%" height="200%">
+   <feGaussianBlur id="svgFilterBlur" in="SourceGraphic" result="Blur" stdDeviation="150"/>
+ </filter>
+ <animate
+   xlink:href="#svgFilterBlur"
+   attributeName="stdDeviation"
+   values="150;0;150"
+   dur="3s"
+   fill="freeze"
+   repeatCount="indefinite"
+   />
 <metadata>
 Created by potrace 1.15, written by Peter Selinger 2001-2017
 </metadata>
@@ -12,7 +28,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
 
 </style>
 <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="#E3120B" stroke="none">
 <path d="M0 5135 l0 -5105 10000 0 10000 0 0 5105 0 5105 -10000 0 -10000 0 0
 -5105z m9952 2654 l3 -471 75 67 c152 136 327 189 516 154 119 -22 236 -114
 294 -233 38 -77 46 -163 55 -626 9 -476 21 -568 77 -604 12 -8 55 -21 93 -29
