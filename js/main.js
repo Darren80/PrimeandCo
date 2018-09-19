@@ -95,7 +95,9 @@ $(window).load(function() {
     //   // classSwitcher(b);
     // });
     let navElement = document.querySelector('#navbar-pages');
-    let ms = new MenuSpy(navElement);
+    let ms = new MenuSpy(navElement, {
+      threshold: 95
+    });
 
 //Scroll to Hash
 document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
@@ -105,16 +107,13 @@ document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
       $('html, body').animate({
           scrollTop: $(hash).offset().top - 80
       }, 200);
-      
+
     });
   });
 
     function svgHovered(e) {
       console.log(e);
     }
-
-
-
 
 
   });

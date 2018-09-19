@@ -5,55 +5,14 @@ footer {
   margin: auto;
 }
 
+.footer-container {
+  padding: 6rem 0 5rem 0;
+  background: rgba(60,60,60,0.9);
+  color: white;
+}
+
 footer a, footer a:hover {
   text-decoration: none;
-}
-
-#mapPin {
-  font-size: 1.5rem;
-  color: blue;
-}
-
-
-#footer-address {
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 1rem;
-}
-#footer-address p {
-  margin: 0;
-  line-height: 1.3;
-}
-#footer-address i {
-  margin-right: 1rem;
-}
-#footer-address-map {
-  color: white;
-  background-color: rgb(98, 0, 238);
-
-  text-decoration: none;
-  padding: 0.4rem;
-  width: 110%;
-  border-radius: 5px;
-  margin-right: 0.5rem;
-
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s ease;
-
-
-}
-#footer-address-map i {
-  margin-right: 0.25rem;
-}
-
-#footer-address-map:hover {
-  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.4);
-  background-color: rgba(98, 0, 238, 0.8);
-}
-#footer-address-map:active {
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.3);
-  background-color: rgba(98, 0, 238, 0.6);
 }
 
 a {
@@ -72,14 +31,13 @@ footer #footer-logo {
   width: 50px;
 }
 
-.footer-container {
-  padding: 6rem 0 5rem 0;
-  background-color: #808080;
-}
-
 footer .links:first-child {
   flex: 2 1 200px;
   text-align: left;
+}
+
+footer .links#product-links ul li:not(:first-child) {
+  margin-bottom: 0.8rem;
 }
 
 footer li {
@@ -100,4 +58,82 @@ footer ul li:first-child {
 
 footer ul li:first-child:hover {
   padding-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  footer .links:not(:last-child) {
+    margin-right: 2.5rem;
+  }
+  footer {
+    width: 95%;
+  }
+}
+
+#mapPin {
+  font-size: 1.5rem;
+  color: blue;
+}
+
+
+#footer-address {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 1rem;
+}
+#footer-address p {
+  margin: 0;
+  line-height: 1.3;
+}
+#footer-address i {
+  margin-right: 1rem;
+}
+#footer-address-button {
+  color: white;
+  background-color: rgb(98, 0, 238);
+
+  text-decoration: none;
+  padding: 0.4rem;
+  width: 110%;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s ease;
+
+
+}
+#footer-address-button i {
+  margin-right: 0.25rem;
+}
+
+#footer-address-button:hover {
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.4);
+  background-color: rgba(98, 0, 238, 0.8);
+}
+#footer-address-button:active {
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgba(98, 0, 238, 0.6);
+}
+
+@media only screen and (max-width: 1200px) {
+  footer {
+    flex-direction: column;
+  }
+  footer #company-links {
+    order: 0;
+  }
+  footer #social-links {
+    order: 1;
+  }
+  footer #address-links {
+    order: 2;
+  }
+  footer #product-links {
+    order: 3;
+  }
+  #footer-address-button {
+    width: 50%;
+    margin: auto;
+  }
 }

@@ -96,6 +96,13 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+* {
+ font-family: 'Roboto', serif;
+}
+.title {
+  font-family: 'Roboto Slab', serif;
+}
+
    .divider {
      border-bottom: 5px solid rgba(255, 255, 255, 0.75);
      position: absolute;
@@ -154,6 +161,8 @@ textarea {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 999;
+
+
 }
 
 #navbar #navbar-logo {
@@ -162,12 +171,23 @@ textarea {
 
 #navbar ul {
   margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
 }
 #navbar ul li {
-  display: inline;
   margin-right: 1rem;
-  padding: 0.3rem;
   transition: all 0.2s ease-in;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#navbar ul li i {
+  font-size: 1.5rem;
+  display: none;
 }
 #navbar ul li:hover {
   color: purple;
@@ -183,6 +203,56 @@ textarea {
 #all {
   position: relative;
   top: 5rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  #navbar {
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #navbar ul li:first-child, #navbar ul li:nth-last-child(2) {
+    display: none;
+  }
+  #navbar ul li i {
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  #navbar ul li a {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: initial;
+    height: 9rem;
+    padding: 0rem;
+  }
+  #all {
+    top: 9rem;
+  }
+  #navbar #navbar-logo {
+    margin-bottom: 0.6rem;
+  }
+  #navbar #navbar-pages {
+    position: relative;
+  }
+  #navbar #navbar-pages:before {
+  content : "";
+  position: absolute;
+  top: -0.6rem;
+  left: 0;
+  right: 0;
+  height  : 1px;
+  width   : 60%;  /* or 100px */
+  background-image:  linear-gradient(to right, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0.5) 50%, rgba(255,255,255,0.5) 100%);
+  margin: auto;
+  }
 }
 
 /*Banner Carousel_____________________________________________________*/
@@ -204,6 +274,7 @@ textarea {
 #banner-carousel {
   transform: translate3d(0, 0, 0);
   margin-bottom: 2rem;
+  font-family: 'Roboto Slab', serif;
 }
 #banner-carousel .carousel-inner {
   position: relative;
@@ -219,12 +290,13 @@ textarea {
   opacity: 0;
   position: absolute;
   width: 100%;
+  height: inherit;
   display: block;
 }
 #banner-carousel .carousel-item:first-child {
   top: auto;
-    opacity: 1; /* show first slide */
-    position: relative;
+  /* opacity: 1; /* show first slide */
+  position: relative;
 }
 #banner-carousel .carousel-item.active {
   opacity: 1;
@@ -232,6 +304,36 @@ textarea {
 }
 #banner-carousel .carousel-item img {
     filter: brightness(0.7);
+}
+
+#banner-image-1 {
+  background: url('../img/chris-greenhow-662446-unsplash.jpg') scroll no-repeat;
+  background-size: cover;
+  height: inherit;
+}
+#banner-image-2 {
+  background: url('../img/jaanus-jagomagi-393163-unsplash.jpg') scroll no-repeat;
+  background-size: cover;
+  height: inherit;
+}
+#banner-image-3 {
+  background: url('../img/christopher-burns-497236-unsplash.jpg') scroll no-repeat;
+  background-size: cover;
+  height: inherit;
+}
+
+/* FIXME:  */
+@media only screen and (max-width: 1024px) {
+  .banner-text h1 {
+    font-size: 2rem;
+  }
+  .banner-text h3 {
+    font-size: 1.2rem
+  }
+  .banner-text {
+    margin-left: 3rem;
+    top: 2.5rem;
+  }
 }
 
 /*Features_______________________________________________________________________*/
@@ -292,7 +394,19 @@ h3.service-title {
   transform: scale(1.1);
 }
 
+@media only screen and (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 5.5rem;
+  }
+}
 
+@media only screen and (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    grid-row-gap: 4rem;
+  }
+}
 
 /*______________________________________________________*/
 .sub-banner {
@@ -358,6 +472,20 @@ h3.service-title {
   font-weight: bold;
 }
 
+@media only screen and (max-Width: 1024px) {
+  .sub-banner {
+    flex-direction: column;
+  }
+  .sub-banner .sub-right {
+    background-position: 50% 40%;
+  }
+
+  .sub-banner .sub-left {
+    margin: 2rem 0;
+    grid-column-gap: 1rem;
+  }
+}
+
 /*________________________________________________________________________Services*/
 
 .services {
@@ -370,8 +498,10 @@ h3.service-title {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 
-  max-width: 70%;
+  width: 70%;
   margin: auto;
+
+  will-change: opacity, transform, scroll-position;
 
 }
 
@@ -382,6 +512,7 @@ h3.service-title {
 
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .cards {
@@ -395,16 +526,19 @@ h3.service-title {
   display: flex;
   opacity: 0;
   transition: all 0.1s ease-in-out;
+  will-change: opacity, transform, scroll-position;
 }
 .cards:hover {
   box-shadow: 0px 3px 9px 2px rgba(0,0,0, 0.25);
 }
 
-.cards img {
-  max-height: 100%;
-  max-width: 30%;
+.cards .service-image {
+  min-width: 30%;
   border-right: 3px solid grey;
   margin-right: 1rem;
+
+  background: url('../img/jeppe-hove-jensen-762713-unsplash.jpg') scroll no-repeat;
+  background-size: cover;
 }
 
 .cards h1 {
@@ -431,6 +565,35 @@ h3.service-title {
 .cards button:active {
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.3);
 }
+
+@media only screen and (max-Width: 1024px) {
+  .services {
+    grid-template-columns: 1fr;
+    grid-template-rows: initial;
+    grid-template-areas: "card";
+  }
+  .cards {
+    height: 250px;
+    flex-direction: column-reverse;
+  }
+  .cards .service-image {
+    width: 100%;
+    height: 100px;
+    border: 0;
+    border-top: 3px solid grey;
+    margin: 0;
+    margin-top: 1.5rem;
+
+    background-attachment: fixed;
+    background-position-y: 40%;
+  }
+}
+
+@media only screen and (max-Width: 768px) {
+    .services {
+      width: 88%;
+    }
+}
 /*_______________________________________________________________________________Testimonials*/
 
 #testimonials-bigTitle {
@@ -449,6 +612,7 @@ h3.service-title {
   background-repeat: no-repeat;
   background-size: cover; */
   position: relative;
+  will-change: auto;
 }
 .container#testi::before {
   content: '';
@@ -464,6 +628,8 @@ h3.service-title {
   width: 100%;
   height: 100%;
 
+
+  transform: translateZ(0);
 }
 
 .testimonials {
@@ -708,10 +874,30 @@ top: 50%;
   color: white;
 }
 
+@media only screen and (max-width: 768px) {
+  .get-started .title {
+    font-size: 0.5rem;
+  }
+  .get-started button {
+    padding: 0.8rem;
+  }
+  .get-started li:nth-child(2) {
+    margin-right: 1rem;
+  }
+}
+
 /*Partners____________________________________________________________________________*/
 .container.center {
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#partners .divider-2 {
+  top: -1rem;
+}
+#partners .partners-title {
+  margin-bottom: 2rem;
 }
 
 .partners {
@@ -729,15 +915,30 @@ top: 50%;
   width: 100%;
 }
 
-.partners a#svg1 {
-  width 100%;
+@media only screen and (max-width: 768px) {
+  .partners {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
 }
-
 /*Footer Social Buttons____________________________________________________________________________*/
 
 
-.social-buttons {
+.social-items {
   display: flex;
+  justify-content: center;
+}
+.social-items .social-item {
+  margin-right: 1.5rem;
+}
+
+.social-items a {
+  margin-bottom: 2rem;
+}
+
+.social-items p {
+  margin-top: 0.5rem;
+  font-weight: bold;
 }
 
 .social-button {
@@ -761,12 +962,10 @@ top: 50%;
 .social-button#whatsapp {
   background-color: #34AF23;
   font-size: 2.5rem;
-  margin-right: 1.5rem;
 }
 .social-button#email {
   background-color: #c71610;
   font-size: 2rem;
-  margin-right: 1.5rem;
 }
 
 .social-button#phone {
