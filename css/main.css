@@ -302,23 +302,19 @@ textarea {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-#banner-carousel .carousel-item img {
-    filter: brightness(0.7);
-}
 
 #banner-image-1 {
   background: url('../img/chris-greenhow-662446-unsplash.jpg') scroll no-repeat;
-  background-size: cover;
-  height: inherit;
 }
 #banner-image-2 {
   background: url('../img/jaanus-jagomagi-393163-unsplash.jpg') scroll no-repeat;
-  background-size: cover;
-  height: inherit;
 }
 #banner-image-3 {
   background: url('../img/christopher-burns-497236-unsplash.jpg') scroll no-repeat;
+}
+#banner-image-1, #banner-image-2, #banner-image-3 {
   background-size: cover;
+  filter: brightness(0.9);
   height: inherit;
 }
 
@@ -547,6 +543,7 @@ h3.service-title {
 
   background: url('../img/jeppe-hove-jensen-762713-unsplash.jpg') scroll no-repeat;
   background-size: cover;
+  z-index: -10;
 }
 
 .cards h1 {
@@ -581,8 +578,9 @@ h3.service-title {
     grid-template-areas: "card";
   }
   .cards {
-    height: 300px;
+    height: 260px;
     flex-direction: column-reverse;
+    justify-content: space-between;
   }
   .cards .service-image {
     width: 100%;
