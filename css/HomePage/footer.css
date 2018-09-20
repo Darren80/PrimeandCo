@@ -62,7 +62,7 @@ footer ul li:first-child:hover {
 
 @media only screen and (max-width: 1400px) {
   footer .links:not(:last-child) {
-    margin-right: 2.5rem;
+    margin-right: 0;
   }
   footer {
     width: 95%;
@@ -117,6 +117,9 @@ footer ul li:first-child:hover {
 }
 
 @media only screen and (max-width: 1200px) {
+  .footer-container {
+    padding: 4rem 0 3rem 0;
+  }
   footer {
     flex-direction: column;
   }
@@ -135,5 +138,13 @@ footer ul li:first-child:hover {
   #footer-address-button {
     width: 50%;
     margin: auto;
+  }
+  footer div.links:first-child {
+    text-align: center;
+    flex: initial;
+  }
+  footer ul li:first-child {
+    border-top: 2px solid #D0D0D0;
+    border-bottom: none;
   }
 }

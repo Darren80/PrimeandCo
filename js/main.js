@@ -31,79 +31,79 @@ $( document ).ready(function() {
 
   function animateWhenVisible() { //e.g. animateWhenVisible('.card', 'fadeInLeft');
 
-    var y_scroll_pos = window.pageYOffset;
-    var element_in_view = y_scroll_pos > activation_point;
-    var has_reached_bottom_of_page = max_scroll_height <= y_scroll_pos && !element_in_view;
-    if(element_in_view || has_reached_bottom_of_page) {
-      //$('.card').css("", "visible");
-      if (!$('#c1').hasClass('imagePopUp')) {
+  var y_scroll_pos = window.pageYOffset;
+  var element_in_view = y_scroll_pos > activation_point;
+  var has_reached_bottom_of_page = max_scroll_height <= y_scroll_pos && !element_in_view;
+  if(element_in_view || has_reached_bottom_of_page) {
+    //$('.card').css("", "visible");
+    if (!$('#c1').hasClass('imagePopUp')) {
       $('#c1').addClass('imagePopUp');
       $('#c2').addClass('imagePopUp');
       $('#c3').addClass('imagePopUp');
       $('#c4').addClass('imagePopUp');
       console.log("GG");
     }
-      //$('#c2').addClass('fadeInRightBig');
-      //$('#c3').addClass('fadeInLeftBig');
-      //$('#c4').addClass('fadeInRightBig');
+    //$('#c2').addClass('fadeInRightBig');
+    //$('#c3').addClass('fadeInLeftBig');
+    //$('#c4').addClass('fadeInRightBig');
 
-      /*$('.card').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-      function(e) {
+    /*$('.card').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+    function(e) {
 
-        $('.card').removeClass('fadeInRightBig');
+    $('.card').removeClass('fadeInRightBig');
 
-      });*/
-    }
-  };
+  });*/
+}
+};
 });
 $(window).load(function() {
-  	// Get the Object by ID
-  	var a = document.querySelector("#svgObject");
-    var b = document.querySelector("#svg1");
+  // Get the Object by ID
+  var a = document.querySelector("#svgObject");
+  var b = document.querySelector("#svg1");
 
-  	// Get the SVG document inside the Object tag
-  	var svgDoc = a.contentDocument;
-  	// Get one of the SVG items by ID;
-  	var svgItem = svgDoc.querySelector("g");
-  	// Set the colour to something else
+  // Get the SVG document inside the Object tag
+  var svgDoc = a.contentDocument;
+  // Get one of the SVG items by ID;
+  var svgItem = svgDoc.querySelector("g");
+  // Set the colour to something else
 
-    document.querySelectorAll('object').forEach(svgNode => {
-      //Add blur
-      svgNode.addEventListener('mouseover', (event) => {
-         let svgDocument = event.target.contentDocument;
-         let svgItems = svgDocument.querySelectorAll('g');
-         svgItems.forEach(svgItem => {
-           svgItem.classList.add('blur');
-         });
-       });
-       //Remove blur
-       svgNode.addEventListener('mouseout', (event) => {
-          let svgDocument = event.target.contentDocument;
-          let svgItems = svgDocument.querySelectorAll('g');
-          svgItems.forEach(svgItem => {
-            svgItem.classList.remove('blur');
-          });
-        });
+  document.querySelectorAll('object').forEach(svgNode => {
+    //Add blur
+    svgNode.addEventListener('mouseover', (event) => {
+      let svgDocument = event.target.contentDocument;
+      let svgItems = svgDocument.querySelectorAll('g');
+      svgItems.forEach(svgItem => {
+        svgItem.classList.add('blur');
+      });
     });
-
-    // document.querySelector('#svg1').addEventListener("mouseover", function() {
-    //   svgItem.classList.add('blur');
-    //   // classSwitcher(b);
-    // });
-    // document.querySelector('#svg1').addEventListener("mouseout", function() {
-    //   svgItem.classList.remove('blur');
-    //   // classSwitcher(b);
-    // });
-    let navElement = document.querySelector('#navbar-pages');
-    let ms = new MenuSpy(navElement, {
-      threshold: 95
+    //Remove blur
+    svgNode.addEventListener('mouseout', (event) => {
+      let svgDocument = event.target.contentDocument;
+      let svgItems = svgDocument.querySelectorAll('g');
+      svgItems.forEach(svgItem => {
+        svgItem.classList.remove('blur');
+      });
     });
+  });
 
-//Scroll to Hash
-document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
+  // document.querySelector('#svg1').addEventListener("mouseover", function() {
+  //   svgItem.classList.add('blur');
+  //   // classSwitcher(b);
+  // });
+  // document.querySelector('#svg1').addEventListener("mouseout", function() {
+  //   svgItem.classList.remove('blur');
+  //   // classSwitcher(b);
+  // });
+  let navElement = document.querySelector('#navbar-pages');
+  let ms = new MenuSpy(navElement, {
+    threshold: 95
+  });
+
+  //Scroll to Hash
+  document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
     node.addEventListener('click', (event) => {
 
-      let hash = event.target.getAttribute('href');
+      // let hash = event.target.getAttribute('href');
       // $('html, body').animate({
       //     scrollTop: $(hash).offset().top - 80
       // }, 200);
@@ -111,19 +111,52 @@ document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
     });
   });
 
-    function svgHovered(e) {
-      console.log(e);
-    }
+  function svgHovered(e) {
+    console.log(e);
+  }
 
+});
 
-  });
-
-  function classSwitcher(element) {
-    if (element.className.includes('up')) {
-      element.classList.add('down');
-      element.classList.remove('up');
+function classSwitcher(element) {
+  if (element.className.includes('up')) {
+    element.classList.add('down');
+    element.classList.remove('up');
   } else {
     element.classList.remove('down');
     element.classList.add('up');
   }
 };
+
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('#navbar').outerHeight();
+// on scroll, let the interval function know the user has scrolled
+$(window).scroll(() => {
+  // didScroll = true; UNCOMMENT TO ENABLE FEATURE!!
+});
+// run hasScrolled() and reset didScroll status
+setInterval(() => {
+  if (didScroll) {
+    hasScrolled();
+    didScroll = false;
+  }
+}, 250);
+function hasScrolled() {
+  var st = $(this).scrollTop();
+  console.log(st);
+  if (Math.abs(lastScrollTop - st) <= delta)
+  return;
+
+  // If current position > last position AND scrolled past navbar...
+  if (st > lastScrollTop && st > navbarHeight){
+    // Scroll Down
+    $('#navbar').removeClass("nav-down").addClass("nav-up");
+  } else {
+    // Scroll Up
+    // If did not scroll past the document (possible on mac)...
+    if(st + $(window).height() < $(document).height()) {
+      $('#navbar').removeClass("nav-up").addClass("nav-down");
+    }
+  }
+}

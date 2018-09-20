@@ -164,6 +164,9 @@ textarea {
 
 
 }
+.nav-up {
+    top: -9rem;
+}
 
 #navbar #navbar-logo {
   font-size: 2rem;
@@ -790,7 +793,7 @@ top: 50%;
 }
 
 #testimonial-carousel-container .carousel-item .bubble {
-  height: 18rem;
+  height: 15rem;
   width: 40%;
   margin: 0;
   position: absolute;
@@ -867,6 +870,12 @@ top: 50%;
   filter: hue-rotate(90deg);
 }
 
+@media only screen and (max-width: 1250px) {
+  #testimonials .bubble .testi-text {
+    margin-left: 1.5rem;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   #testimonials {
     display: none;
@@ -904,6 +913,12 @@ top: 50%;
   .carousel-item:nth-child(2n) .bubble .testi-name, .carousel-item:nth-child(2n) .bubble .testi-company {
     position: relative;
     left: -2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #testimonial-carousel-container .carousel .carousel-item .bubble {
+    height: 18rem;
   }
 }
 
