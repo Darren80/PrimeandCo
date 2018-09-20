@@ -225,12 +225,6 @@ textarea {
   }
 }
 
-@media only screen and (max-width: 720px) {
-    #navbar {
-        position: absolute;
-    }
-}
-
 @media only screen and (max-width: 700px) {
   #navbar {
     flex-direction: column;
@@ -772,10 +766,15 @@ top: 50%;
 
 /*Testimonials Carousel Container________________________________________________________*/
 
+#testimonial-carousel-container.container-fluid {
+  padding: 0;
+}
+
 #testimonial-carousel-container .carousel {
-  background: url('../img/benjamin-child-90768-unsplash.jpg') fixed no-repeat;
+  background-image: url('../img/benjamin-child-90768-unsplash.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 20rem;
+  height: 22rem;
 }
 #testimonial-carousel-container .carousel .carousel-inner {
   height: inherit;
@@ -791,7 +790,7 @@ top: 50%;
 }
 
 #testimonial-carousel-container .carousel-item .bubble {
-  height: 15rem;
+  height: 18rem;
   width: 40%;
   margin: 0;
   position: absolute;
@@ -800,8 +799,16 @@ top: 50%;
   right: 18%;
 }
 
+/* Reduce sizes */
 .carousel-item .bubble .quote {
   font-size: 0.5rem;
+}
+.carousel-item .bubble .testi-name, .carousel-item .bubble .testi-company {
+  margin-bottom: 0;
+}
+.carousel-item .bubble .testi-text {
+  margin-left: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 /* 2nd bubble */
@@ -838,15 +845,17 @@ top: 50%;
   height: 150%;
   position: absolute;
 
-  background: url('../img/benjamin-child-90768-unsplash.jpg') fixed no-repeat;
+  background-image: inherit;
+  background-repeat: no-repeat;
   background-size: cover;
   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
   filter: blur(5px) brightness(1.1);
 }
 .carousel-control-prev, .carousel-control-next {
-  width: 15%;
+  width: 12%;
   overflow: hidden;
 }
+/* Arrows */
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#333333' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
   background-color: rgb(255, 255, 255);
@@ -869,13 +878,32 @@ top: 50%;
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
 
   /* Centering using position: absolute, because flexbox/grid break the carousel */
-  .carousel-item .bubble .full-testi {
-    margin-left: 1rem;
-    font-size: 0.6rem;
-    margin-bottom: 0;
+  #testimonial-carousel-container .carousel .carousel-item .bubbleImage {
+    width: 4rem;
+    height: 4rem;
+    left: initial;
+    align-self: flex-end;
+  }
+  #testimonial-carousel-container .carousel-item:nth-child(2n) .bubble .bubbleImage {
+    left: initial;
+    right: 1rem;
+  }
+  #testimonial-carousel-container .carousel .carousel-item .bubble {
+    padding: 2%;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-55%);
+  }
+  .carousel .carousel-item .bubble::before, .carousel .carousel-item .bubble::after {
+    content: initial;
+  }
+
+  .carousel-item:nth-child(2n) .bubble .testi-name, .carousel-item:nth-child(2n) .bubble .testi-company {
+    position: relative;
+    left: -2rem;
   }
 }
 
