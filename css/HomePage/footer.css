@@ -37,7 +37,8 @@ footer .links:first-child {
 }
 
 footer .links#product-links ul li:not(:first-child) {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.4rem;
+  color: lightblue;
 }
 
 footer li {
@@ -62,7 +63,7 @@ footer ul li:first-child:hover {
 
 @media only screen and (max-width: 1400px) {
   footer .links:not(:last-child) {
-    margin-right: 0;
+    margin-right: 2.5rem;
   }
   footer {
     width: 95%;
@@ -138,6 +139,9 @@ footer ul li:first-child:hover {
   #footer-address-button {
     width: 50%;
     margin: auto;
+  }
+  .footer-container footer div.links {
+    margin-right: 0;
   }
   footer div.links:first-child {
     text-align: center;
