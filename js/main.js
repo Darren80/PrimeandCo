@@ -104,9 +104,9 @@ document.querySelectorAll('#navbar #navbar-pages li').forEach(node => {
     node.addEventListener('click', (event) => {
 
       let hash = event.target.getAttribute('href');
-      $('html, body').animate({
-          scrollTop: $(hash).offset().top - 80
-      }, 200);
+      // $('html, body').animate({
+      //     scrollTop: $(hash).offset().top - 80
+      // }, 200);
 
     });
   });

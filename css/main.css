@@ -785,9 +785,23 @@ top: 50%;
 }
 
 #testimonial-carousel-container .carousel .carousel-item .bubbleImage {
-  width: 3rem;
-  height: 3rem;
-  left: -6.5rem;
+  width: 6rem;
+  height: 6rem;
+  left: -10rem;
+}
+
+#testimonial-carousel-container .carousel-item .bubble {
+  height: 15rem;
+  width: 40%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18%;
+}
+
+.carousel-item .bubble .quote {
+  font-size: 0.5rem;
 }
 
 /* 2nd bubble */
@@ -808,7 +822,7 @@ top: 50%;
 
 #testimonial-carousel-container .carousel-item:nth-child(2n) .bubble .bubbleImage {
   left: initial;
-  right: -6.5rem;
+  right: -10rem;
 }
 #testimonial-carousel-container .carousel-item:nth-child(2n) .bubble .testi-name {
   align-self: flex-start;
@@ -858,21 +872,10 @@ top: 50%;
 @media only screen and (max-width: 1000px) {
 
   /* Centering using position: absolute, because flexbox/grid break the carousel */
-  .carousel-item .bubble {
-    height: 15rem;
-    width: 40%
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 18%;
-  }
-  .carousel-item .bubble .quote {
-    font-size: 0.5rem;
-  }
-  .carousel-item .bubble .testi-text {
+  .carousel-item .bubble .full-testi {
     margin-left: 1rem;
     font-size: 0.6rem;
+    margin-bottom: 0;
   }
 }
 
